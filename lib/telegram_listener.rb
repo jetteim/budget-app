@@ -1,11 +1,13 @@
 class TelegramListener
   require 'telegramAPI'
   
-  @api = TelegramAPI.new TELEGRAM_TOKEN
+  def initialize(token)
+     @api = TelegramAPI.new(token)
+  end
 
   def getUpdatesBunlde
 	updates = @api.getUpdates('timeout' => 180)
-	p "got updates from telegram: #{updates.inspect}"
+	p "got updates from telegram: #{updates.inspect}".cyan
 	bundle = {}
 	updates.each do |update|
 	   next unless message = parse_update(update)

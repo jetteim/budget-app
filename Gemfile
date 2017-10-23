@@ -12,5 +12,5 @@ group :telegram do
 end
 
 group :misc do
-  gem 'colored'
+  gem 'colorize'
 end
