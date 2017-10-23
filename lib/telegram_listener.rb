@@ -7,7 +7,7 @@ class TelegramListener
 
   def getUpdatesBunlde
 	updates = @api.getUpdates('timeout' => 180)
-	p "got updates from telegram: #{updates.inspect}".cyan
+	puts "got updates from telegram: #{updates.inspect}".cyan
 	bundle = {}
 	updates.each do |update|
 	   next unless message = parse_update(update)
@@ -15,7 +15,7 @@ class TelegramListener
 	   bundle[username] = [] unless bundle[username]
 	   bundle[username] << message
 	end
-	p "updates grouped by username and bundled: #{bundle}".magenta
+	puts "updates grouped by username and bundled: #{bundle}".magenta
 	bundle
   end
   
