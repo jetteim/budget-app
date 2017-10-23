@@ -5,12 +5,12 @@ class InputProcessor
 	chats = {}
 	input.each do |message|
 	  chat_id = message[:chat_id]
-	  chats{chat_id} = [] unless chats{chat_id}
-	  chats{chat_id} << message.text
+	  chats[chat_id] = [] unless chats[chat_id]
+	  chats[chat_id] << message[:text]
 	end
 
 	replies = []
-	chats.each do |chat_id, updates|
+	chats.each do |id, updates|
 	  replies << {
 		chat_id: id,
 		reply: "got #{updates.count} updates from user #{user}: #{updates}"
