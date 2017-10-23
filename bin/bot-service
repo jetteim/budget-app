@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 class BotService
   require 'colored'
-  require 'config/bot'
-  require 'lib/telegram_listener'
-  require 'lib/telegram_responder'
+  require 'config/bot.rb'
+  require 'lib/telegram_listener.rb'
+  require 'lib/telegram_responder.rb'
 
   listener = TelegramListener.new
   responder = TelegramResponder.new
