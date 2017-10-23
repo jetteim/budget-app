@@ -1,70 +1,16 @@
 #!/usr/bin/env ruby
 class BotService
-  require 'telegramAPI'
-  require 'json'
   require 'colored'
+  require 'config/bot'
+  require 'lib/telegram_listener'
+  require 'lib/telegram_responder'
 
-  TELEGRAM_TOKEN = '465826703:AAGyl640kAtVlUN4NMmm0eHkn_QifmLKJWc'.freeze
-  @api = TelegramAPI.new TELEGRAM_TOKEN
-  @parsers = ThreadGroup.new
-  @senders = ThreadGroup.new
-
-  def self.make_reply(update)
-    chat = update['message']['chat']['id'] || 'unknown'
-    username = update['message']['chat']['username'] || 'unknown'
-    {
-      chat: chat,
-      username: username,
-      message: "Received update from @#{username} in chat #{chat}: #{update.inspect}"
-    }
-  end
-
-  def self.queue_update(update)
-    p "queue update for chat #{chat = update['message']['chat']['id']}".green
-
-    pending = @parsers.list.select { |th| th[:chat] == chat }
-
-    p "updates pending for chat #{chat}: #{pending.inspect}".green
-
-    @parsers.add(
-      Thread.new do
-        p "parse update for chat #{chat}".green
-        Thread.current[:chat] = chat
-        if (reply = make_reply(update))
-          queue_reply(reply)
-        end
-        exit
-      end
-    )
-    return unless pending.count > 0
-    pending[0].terminate unless pending[0].join(5)
-  end
-
-  def self.queue_reply(reply)
-    p "queue reply to chat #{reply[:chat]}".green
-
-    pending = @senders.list.select { |th| th[:chat] == chat }
-
-    p "updates pending for chat #{chat}: #{updates.inspect}".green
-
-    @senders.add(
-      Thread.new do
-        Thread.current[:chat] = reply[:chat]
-        p "sending reply: #{reply.inspect}"
-        res = @api.sendMessage(chat, reply)
-        p "sendMessage result: #{res.inspect}".yellow
-        exit
-      end
-    )
-    return unless pending.count > 0
-    pending[0].terminate unless pending[0].join(5)
-  end
-
+  listener = TelegramListener.new
+  responder = TelegramResponder.new
+  processor = InputProcessor.new
   loop do
-    updates = @api.getUpdates('timeout' => 180)
-    updates.each do |update|
-      p "got update: #{update.inspect}".green
-      queue_update(update)
-    end
+	replies = []
+	listener.getUpdatesBunlde.each {|user, input| replies << processor.process_telegram(user, input)}
+ 	responder.replyBundle(replies.flatten)
   end
 end
