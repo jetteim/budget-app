@@ -1,4 +1,6 @@
 class TelegramResponder
+  require 'telegramAPI'
+
   @api = TelegramAPI.new TELEGRAM_TOKEN
   MAX_RESPONDERS = 16
   @responders = ThreadGroup.new

@@ -1,4 +1,6 @@
 class TelegramListener
+  require 'telegramAPI'
+  
   @api = TelegramAPI.new TELEGRAM_TOKEN
 
   def getUpdatesBunlde
