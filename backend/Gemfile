@@ -27,7 +27,6 @@ gem 'dm-constraints'
 gem 'dm-aggregates'
 gem 'dm-types'
 gem 'dm-core'
-gem 'ohm', '~> 1.3.0'
 
 # Test requirements
 

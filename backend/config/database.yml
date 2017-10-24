@@ -1,4 +1,3 @@
----
 development: &defaults
   adapter: postgres
   database: budget_app
