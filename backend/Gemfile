@@ -16,6 +16,7 @@ source 'https://rubygems.org'
 # Project requirements
 gem 'rake'
 gem 'thin'
+gem 'padrino-cache'
 
 # Component requirements
 gem 'dm-postgres-adapter'
