@@ -2,7 +2,7 @@ module Backend
   class BudgetApp < Padrino::Application
     use IdentityMap
     enable :sessions
-    register Padrino::Cache
+    #register Padrino::Cache
     enable :caching
 
     ##
