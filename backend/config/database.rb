@@ -33,8 +33,8 @@ DataMapper.setup(:default, YAML.load_file(Padrino.root('config/database.yml'))[R
 DataMapper.logger = logger
 DataMapper::Property::String.length(255)
 
-#case Padrino.env
+# case Padrino.env
 #  when :development then DataMapper.setup(:default, "postgres://root@localhost/backend_development")
 #  when :production  then DataMapper.setup(:default, "postgres://root@localhost/backend_production")
 #  when :test        then DataMapper.setup(:default, "postgres://root@localhost/backend_test")
-#end
+# end

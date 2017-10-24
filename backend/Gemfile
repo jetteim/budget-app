@@ -14,19 +14,19 @@ source 'https://rubygems.org'
 # gem 'oj'
 
 # Project requirements
+gem 'padrino-cache'
 gem 'rake'
 gem 'thin'
-gem 'padrino-cache'
 
 # Component requirements
-gem 'dm-postgres-adapter'
-gem 'dm-validations'
-gem 'dm-timestamps'
-gem 'dm-migrations'
-gem 'dm-constraints'
 gem 'dm-aggregates'
-gem 'dm-types'
+gem 'dm-constraints'
 gem 'dm-core'
+gem 'dm-migrations'
+gem 'dm-postgres-adapter'
+gem 'dm-timestamps'
+gem 'dm-types'
+gem 'dm-validations'
 
 # Test requirements
 

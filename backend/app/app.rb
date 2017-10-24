@@ -28,7 +28,7 @@ module Backend
     #
     # set :raise_errors, true       # Raise exceptions (will stop application) (default for test)
     # set :dump_errors, true        # Exception backtraces are written to STDERR (default for production/development)
-    set :show_exceptions, true    # Shows a stack trace in browser (default for development)
+    set :show_exceptions, true # Shows a stack trace in browser (default for development)
     # set :logging, true            # Logging in STDOUT for development and file for production (default only for development)
     # set :public_folder, 'foo/bar' # Location for static assets (default root/public)
     # set :reload, false            # Reload application files (default in development)
@@ -38,7 +38,7 @@ module Backend
     # disable :flash                # Disables sinatra-flash (enabled by default if Sinatra::Flash is defined)
     # layout  :my_layout            # Layout can be in views/layouts/foo.ext or views/foo.ext (default :application)
     #
-	
+
     ##
     # You can configure for a specified environment like:
     #
