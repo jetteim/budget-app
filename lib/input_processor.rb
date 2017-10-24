@@ -10,12 +10,12 @@ class InputProcessor
 
     replies = []
     chats.each do |id, updates|
+      `say #{updates}`
       replies << {
         chat_id: id,
         reply: "got #{updates.count} updates from user #{user}: #{updates}"
       }
     end
-    puts "prepare replies to user #{user}: #{replies.inspect}".blue
     replies
   end
 end

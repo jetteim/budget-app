@@ -12,7 +12,7 @@ class BotService
   processor = InputProcessor.new
   loop do
     replies = []
-    listener.getUpdatesBunlde.each { |user, input| replies << processor.process_telegram(user, input) }
-    responder.replyBundle(replies.flatten)
+    listener.updates_bundle.each { |user, input| replies << processor.process_telegram(user, input) }
+    responder.reply_bundle(replies.flatten)
   end
 end

@@ -5,18 +5,18 @@ class TelegramListener
     @api = TelegramAPI.new(token)
   end
 
-  def getUpdatesBunlde
+  def updates_bundle
     updates = @api.getUpdates('timeout' => 180)
-    puts "got updates from telegram: #{updates.inspect}".cyan
     bundle = {}
     updates.each do |update|
-      next unless message = parse_update(update)
-      next unless username = message[:username]
+      next unless (message = parse_update(update))
+      next unless (username = message[:username])
       bundle[username] = [] unless bundle[username]
       bundle[username] << message
     end
-    puts "updates grouped by username and bundled: #{bundle}".magenta
-    bundle
+    return bundle
+  rescue RestClient::Exception > e
+    puts e.response.to_s.red
   end
 
   def parse_update(update)
