@@ -9,7 +9,7 @@
 # DataMapper.setup(:default, "sqlite3://" + Padrino.root('db', "development.db"))
 #
 # # Setup DataMapper using config/database.yml
-# DataMapper.setup(:default, YAML.load_file(Padrino.root('config/database.yml'))[RACK_ENV])
+DataMapper.setup(:default, YAML.load_file(Padrino.root('config/database.yml'))[RACK_ENV])
 #
 # config/database.yml file:
 #
@@ -33,8 +33,8 @@
 DataMapper.logger = logger
 DataMapper::Property::String.length(255)
 
-case Padrino.env
-  when :development then DataMapper.setup(:default, "postgres://root@localhost/backend_development")
-  when :production  then DataMapper.setup(:default, "postgres://root@localhost/backend_production")
-  when :test        then DataMapper.setup(:default, "postgres://root@localhost/backend_test")
-end
+#case Padrino.env
+#  when :development then DataMapper.setup(:default, "postgres://root@localhost/backend_development")
+#  when :production  then DataMapper.setup(:default, "postgres://root@localhost/backend_production")
+#  when :test        then DataMapper.setup(:default, "postgres://root@localhost/backend_test")
+#end
