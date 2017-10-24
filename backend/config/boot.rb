@@ -55,6 +55,7 @@ end
 # Add your after (RE)load hooks here
 #
 Padrino.after_load do
+  DataMapper.finalize
 end
 
 Padrino.load!

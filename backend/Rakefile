@@ -3,6 +3,7 @@ require 'padrino-core/cli/rake'
 
 PadrinoTasks.use(:database)
 PadrinoTasks.use(:ohm)
+PadrinoTasks.use(:datamapper)
 PadrinoTasks.init
 
 task :default => :test

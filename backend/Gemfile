@@ -18,6 +18,14 @@ gem 'rake'
 gem 'thin'
 
 # Component requirements
+gem 'dm-postgres-adapter'
+gem 'dm-validations'
+gem 'dm-timestamps'
+gem 'dm-migrations'
+gem 'dm-constraints'
+gem 'dm-aggregates'
+gem 'dm-types'
+gem 'dm-core'
 gem 'ohm', '~> 1.3.0'
 
 # Test requirements
