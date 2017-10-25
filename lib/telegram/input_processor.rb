@@ -6,6 +6,21 @@ class InputProcessor
       chat_id = message[:chat_id]
       chats[chat_id] = [] unless chats[chat_id]
       chats[chat_id] << message[:text]
+	  message['entities'].each do |entity|
+		case entity['type']
+		when 'mention'
+		when 'hashtag'
+		when 'bot_command'
+		when 'url'
+		when 'email'
+		when 'bold'
+		when 'italic'
+		when 'code'
+		when 'pre'
+		when 'text_link'
+		when 'text_mention'
+		end
+	  end
     end
 
     replies = []
