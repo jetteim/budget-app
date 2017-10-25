@@ -1,7 +1,7 @@
 development: &defaults
   adapter: postgres
   database: budget_app
-  username: maximlee
+  username: budget_app
   password: budget_app_password
   # host: 127.0.0.1
 
@@ -10,4 +10,3 @@ test:
 
 production:
   <<: *defaults
-  username: jetteim
