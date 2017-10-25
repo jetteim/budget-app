@@ -25,17 +25,17 @@ class TelegramListener
     chat = message['chat'] if message
     username = chat['username'] if chat
 	entities = {
-	  'mention': [],
-	  'hashtag': [],
-      'bot_command': [],
-      'url': [],
-      'email': [],
-      'bold': [],
-      'italic': [],
-      'code': [],
-      'pre': [],
-      'text_link': [],
-      'text_mention': []
+	  mention: [],
+	  hashtag: [],
+      bot_command: [],
+      url: [],
+      email: [],
+      bold: [],
+      italic: [],
+      code: [],
+      pre: [],
+      text_link: [],
+      text_mention: []
 	}
 	if message['entities'] 
 	  message['entities'].each do |entity|
