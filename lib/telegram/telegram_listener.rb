@@ -37,7 +37,12 @@ class TelegramListener
       'text_link': [],
       'text_mention': []
 	}
-	message['entities'].each {|entity|  entities[entity['type']] << message['text'][entity['offset'], entity['length']] } if message['entities']
+	if message['entities'] 
+	  message['entities'].each do |entity|
+		puts "processing entity #{entity}".cyan
+	    entities[entity['type']] << message['text'][entity['offset'], entity['length']]
+      end
+	end
     {
       username: username,
       chat_id: chat['id'],
