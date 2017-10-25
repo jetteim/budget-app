@@ -17,6 +17,7 @@ source 'https://rubygems.org'
 gem 'padrino-cache'
 gem 'rake'
 gem 'thin'
+gem 'redis'
 
 # Component requirements
 gem 'dm-aggregates'
