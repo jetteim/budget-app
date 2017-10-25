@@ -15,7 +15,7 @@ class TelegramListener
       bundle[username] << message
     end
     return bundle
-  rescue RestClient::Exception > e
+  rescue RestClient::Exception => e
     puts e.response.to_s.red
   end
 
