@@ -23,6 +23,37 @@ class TelegramListener
     message = update['message']
     chat = message['chat'] if message
     username = chat['username'] if chat
+	entities = []
+	if message['entities']
+	  puts "message: #{message.inspect}".magenta
+	  message['entities'].each do |entity|
+		case entity['type']
+		when 'mention'
+		  puts "entity: #{entity.inspect}".magenta
+		when 'hashtag'
+		  puts "entity: #{entity.inspect}".magenta
+		when 'bot_command'
+		  puts "entity: #{entity.inspect}".magenta
+		when 'url'
+		  puts "entity: #{entity.inspect}".magenta
+		when 'email'
+		  puts "entity: #{entity.inspect}".magenta
+		when 'bold'
+		  puts "entity: #{entity.inspect}".magenta
+		when 'italic'
+		  puts "entity: #{entity.inspect}".magenta
+		when 'code'
+		  puts "entity: #{entity.inspect}".magenta
+		when 'pre'
+		  puts "entity: #{entity.inspect}".magenta
+		when 'text_link'
+		  puts "entity: #{entity.inspect}".magenta
+		when 'text_mention'
+		  puts "entity: #{entity.inspect}".magenta
+		else
+		end
+	  end
+	end
     {
       username: username,
       chat_id: chat['id'],
