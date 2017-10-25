@@ -10,6 +10,7 @@ class UserProfile
   property :facebook, String
   property :twitter, String
   property :google, String
+  property :telegram, String
   
   belongs_to :user
   
