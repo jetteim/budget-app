@@ -28,7 +28,7 @@ class TelegramListener
 	  entities = {}
 	  message['entities'].each do |entity|
 		puts "processing entity #{entity}".cyan
-		key = entity['type'].to_s
+		key = entity['type']
 		entities[key] = [] unless entities[key]
 		puts "total entities of type #{key} -> #{entities[key]}".magenta
 	    entities[key] << message['text'][entity['offset'], entity['length']]
