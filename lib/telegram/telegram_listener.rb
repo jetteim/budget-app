@@ -24,24 +24,14 @@ class TelegramListener
 	message = update['message']
     chat = message['chat'] if message
     username = chat['username'] if chat
-	entities = {
-	  mention: [],
-	  hashtag: [],
-      bot_command: [],
-      url: [],
-      email: [],
-      bold: [],
-      italic: [],
-      code: [],
-      pre: [],
-      text_link: [],
-      text_mention: []
-	}
 	if message['entities'] 
+	  entities = {}
 	  message['entities'].each do |entity|
 		puts "processing entity #{entity}".cyan
-		puts "total entities of type #{entity['type']} -> #{entities[entity['type']]}".magenta
-	    entities[entity['type']] << message['text'][entity['offset'], entity['length']]
+		key = entity['type']
+		entities[key] = [] unless entities[key]
+		puts "total entities of type #{key} -> #{entities[key]}".magenta
+	    entities[key] << message['text'][entity['offset'], entity['length']]
       end
 	end
     {
