@@ -5,7 +5,7 @@ class InputProcessor
     input.each do |message|
       chat_id = message[:chat_id]
       chats[chat_id] = [] unless chats[chat_id]
-	  chats[chat_id] << "commands received: #{message[:entities][bot_command]}"
+	  chats[chat_id] << "commands received: #{message[:entities][:bot_command]}"
       chats[chat_id] << message[:text]
     end
     replies = []
