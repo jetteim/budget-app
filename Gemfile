@@ -13,6 +13,15 @@ source 'https://rubygems.org'
 # Optional JSON codec (faster performance)
 # gem 'oj'
 
+group :telegram do
+  gem 'telegramAPI'
+  gem 'rest-client', ">= 2.0.1"
+end
+
+group :misc do
+  gem 'colorize'
+end
+
 # Project requirements
 gem 'padrino-cache'
 gem 'rake'
