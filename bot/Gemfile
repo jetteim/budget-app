@@ -9,6 +9,7 @@ source 'https://rubygems.org'
 #
 group :telegram do
   gem 'telegramAPI'
+  gem 'rest-client', ">= 2.0.1"
 end
 
 group :misc do
