@@ -14,8 +14,8 @@ source 'https://rubygems.org'
 # gem 'oj'
 
 group :telegram do
+  gem 'rest-client', '>= 2.0.1'
   gem 'telegramAPI'
-  gem 'rest-client', ">= 2.0.1"
 end
 
 group :misc do
@@ -25,8 +25,8 @@ end
 # Project requirements
 gem 'padrino-cache'
 gem 'rake'
-gem 'thin'
 gem 'redis'
+gem 'thin'
 
 # Component requirements
 gem 'dm-aggregates'

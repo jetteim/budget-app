@@ -6,5 +6,4 @@ class User
   property :username, String
   property :password, String
   property :token, String
-  
 end

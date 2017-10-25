@@ -11,7 +11,6 @@ class UserProfile
   property :twitter, String
   property :google, String
   property :telegram, String
-  
+
   belongs_to :user
-  
 end

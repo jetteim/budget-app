@@ -21,24 +21,23 @@ class TelegramListener
 
   def parse_update(update)
     puts "parsing message #{update}".yellow
-	message = update['message']
+    message = update['message']
     chat = message['chat'] if message
     username = chat['username'] if chat
-	if message['entities'] 
-	  entities = {}
-	  message['entities'].each do |entity|
-		puts "processing entity #{entity}".cyan
-		key = entity['type']
-		entities[key] = [] unless entities[key]
-		puts "total entities of type #{key} -> #{entities[key]}".magenta
-	    entities[key] << message['text'][entity['offset'], entity['length']]
+    if message['entities']
+      entities = {}
+      message['entities'].each do |entity|
+        puts "processing entity #{entity}".cyan
+        key = entity['type']
+        entities[key] = [] unless entities[key]
+        entities[key] << message['text'][entity['offset'], entity['length']]
       end
-	end
+    end
     {
       username: username,
       chat_id: chat['id'],
       text: message['text'],
-	  entities: entities
+      entities: entities
     }
   end
  end
