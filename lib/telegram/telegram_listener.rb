@@ -40,6 +40,7 @@ class TelegramListener
 	if message['entities'] 
 	  message['entities'].each do |entity|
 		puts "processing entity #{entity}".cyan
+		puts "total entities of type entity['type'] -> entities[entity['type']]"
 	    entities[entity['type']] << message['text'][entity['offset'], entity['length']]
       end
 	end
