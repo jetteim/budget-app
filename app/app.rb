@@ -11,8 +11,7 @@ module Backend
 	end
 
 	def controller_namespace(controller)
-		## Controller to namespace
-		settings.routes[controller]&.['href'] || controller.class
+		controller.namespace || controller.class
 	end
 
     def rest_routes(klass, namespace)
