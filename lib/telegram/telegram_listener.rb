@@ -21,7 +21,7 @@ class TelegramListener
 
   def parse_update(update)
     puts "parsing message #{update}".yellow
-    message = update['message']
+    message = update['message'] || update['edited_message']
     chat = message['chat'] if message
     username = chat['username'] if chat
     if message['entities']
