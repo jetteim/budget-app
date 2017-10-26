@@ -53,10 +53,10 @@ class InputProcessor
   end
 
   def command_reply(user, message)
-    return bind_token(message[:text]) if @pending[user] && @pending[user] == :register
+    return bind_token(user, message[:text]) if @pending[user] && @pending[user] == :register
   end
 
-  def bind_token(string)
-    #
+  def bind_token(user, string)
+    puts "binding token #{string} for user #{user}"
   end
 end
