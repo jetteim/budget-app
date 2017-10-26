@@ -6,6 +6,10 @@ module Backend
     enable :caching
 
     # здесь же надо будет и проверку авторизации сделать
+	def self.included(controller)
+		controller.extend self
+	end
+
     def rest_routes(klass, namespace)
       # индекс
       get namespace do

@@ -18,5 +18,6 @@ Backend::BudgetApp.controllers :users do
   #   'Hello world!'
   # end
 
-  app.rest_routes User, app.controller_namespace(self)
+  rest_routes User, controller_namespace(self)
+  
 end
