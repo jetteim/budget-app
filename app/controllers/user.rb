@@ -17,7 +17,16 @@ Backend::BudgetApp.controllers :user do
   # get '/example' do
   #   'Hello world!'
   # end
-  get :index do
+  get :index, map: '/users' do
     @users = User.all.to_json(relationships: { user_profile: {} })
   end
+
+  get :user, :with => :username do
+    @user = User.get(:username => :username).to_json(relationships: { user_profile: {} })
+  end
+  
+  post :index, :with => :id do
+    @users = User.first_or_create(:username => :username).update(params)
+  end
+
 end
