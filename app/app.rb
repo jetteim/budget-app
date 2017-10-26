@@ -10,11 +10,11 @@ module Backend
 		controller.extend self
 	end
 
-	def controller_namespace(controller)
+	def self.controller_namespace(controller)
 		controller.namespace || controller.class
 	end
 
-    def rest_routes(klass, namespace)
+    def self.rest_routes(klass, namespace)
       # индекс
       get namespace do
         @objects = klass.all, params
