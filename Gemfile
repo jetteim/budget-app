@@ -38,6 +38,7 @@ gem 'dm-postgres-adapter'
 gem 'dm-timestamps'
 gem 'dm-types'
 gem 'dm-validations'
+gem 'dm-serializer'
 
 # Test requirements
 
