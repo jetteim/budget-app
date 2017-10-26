@@ -64,7 +64,7 @@ class InputProcessor
   def do_update(user, message)
     # здесь добавляем новую транзакцию
     puts "doing update for user #{user}: #{message.inspect}".magenta
-    JSON.parse(RestClient.post("localhost:3000/user/#{user}"))
+    JSON.parse(RestClient.get("localhost:3000/user/#{user}"))
   end
 
   def do_command(user, message, command)
@@ -73,7 +73,7 @@ class InputProcessor
   end
 
   def bind_token(user, string)
-    puts "binding token #{string} for user #{user}"
+    puts "binding token #{string} for user #{user}".yellow
     puts "got users #{bind = JSON.parse(RestClient.get("localhost:3000/user/#{user}"))}"
     bind
   end
