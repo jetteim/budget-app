@@ -14,7 +14,7 @@ module Backend
 		controller.name.underscore
 	end
 
-    def self.rest_routes(klass, namespace)
+    def self.rest_routes(klass, namespace = controller_namespace(klass)
       # индекс
       puts "setting route #{namespace} for #{klass}"
 	  get namespace do

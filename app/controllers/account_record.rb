@@ -18,5 +18,5 @@ Backend::BudgetApp.controllers :account_record do
   #   'Hello world!'
   # end
 
-  rest_routes AccountRecord, controller_namespace(self)
+  rest_routes AccountRecord
 end

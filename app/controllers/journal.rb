@@ -18,5 +18,5 @@ Backend::BudgetApp.controllers :journal do
   #   'Hello world!'
   # end
 
-  rest_routes Journal, controller_namespace(self)
+  rest_routes Journal
 end
