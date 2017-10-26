@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-# -
+
 class BotService
   require 'colorize'
   require "#{File.expand_path('../../lib/telegram/', __FILE__)}/telegram_listener.rb"
