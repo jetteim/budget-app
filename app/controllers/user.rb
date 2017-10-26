@@ -19,5 +19,4 @@ Backend::BudgetApp.controllers :users do
   # end
 
   rest_routes User
-  
 end
