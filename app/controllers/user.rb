@@ -18,8 +18,6 @@ Backend::BudgetApp.controllers :user do
   #   'Hello world!'
   # end
   get :index do
-    users = []
-    User.all.each { |u| users << u.to_json }
-    JSON.generate(users)
+    @users = User.all.to_json(relationships: { user_profile: {} })
   end
 end
