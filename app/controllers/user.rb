@@ -20,6 +20,6 @@ Backend::BudgetApp.controllers :user do
   get :index do
     users = []
     User.all.each { |u| users << u.to_json }
-    json users
+    JSON.generate(users)
   end
 end
