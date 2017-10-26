@@ -1,46 +1,54 @@
 source 'https://rubygems.org'
 
-# Padrino supports Ruby version 1.9 and later
-# ruby '2.4.2'
-
-# Distribute your app as a gem
-# gemspec
-
-# Server requirements
-# gem 'thin' # or mongrel
-# gem 'trinidad', :platform => 'jruby'
-
-# Optional JSON codec (faster performance)
-# gem 'oj'
-
-group :telegram do
-  gem 'rest-client', '>= 2.0.1'
-  gem 'telegramAPI'
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
 end
 
-group :misc do
-  gem 'colorize'
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails'
+group :development, :test, :production do
+  gem 'dotenv-rails'
 end
 
-# Project requirements
-gem 'json'
-gem 'padrino-cache'
-gem 'rake'
-gem 'redis'
-gem 'sinatra-contrib'
+gem 'pg'
 gem 'thin'
-# Component requirements
-gem 'dm-aggregates'
-gem 'dm-constraints'
-gem 'dm-core'
-gem 'dm-migrations'
-gem 'dm-postgres-adapter'
-gem 'dm-serializer'
-gem 'dm-timestamps'
-gem 'dm-types'
-gem 'dm-validations'
+gem 'telegramAPI'
+gem 'rest-client'
+gem 'rack-cors'
+gem 'redis-rails'
 
-# Test requirements
+# See https://github.com/rails/execjs#readme for more supported runtimes
+# gem 'therubyracer', platforms: :ruby
 
-gem 'padrino-core'
-gem 'padrino-gen'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder'
+# Use Redis adapter to run Action Cable in production
+gem 'redis'
+gem 'redis-store'
+# Use ActiveModel has_secure_password
+gem 'bcrypt'
+
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
+
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Adds support for Capybara system testing and selenium driver
+  # gem 'capybara', '~> 2.13'
+  # gem 'selenium-webdriver'
+end
+
+group :development do
+  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+  # gem 'web-console', '>= 3.3.0'
+  gem 'listen'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # gem 'spring'
+  # gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

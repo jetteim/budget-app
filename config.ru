@@ -1,7 +1,5 @@
-#!/usr/bin/env rackup
-# This file can be used to start Padrino,
-# just execute it from the command line.
+# This file is used by Rack-based servers to start the application.
 
-require File.expand_path('../config/boot.rb', __FILE__)
+require_relative 'config/environment'
 
-run Padrino.application
+run Rails.application
