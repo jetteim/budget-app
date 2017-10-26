@@ -16,7 +16,8 @@ module Backend
 
     def self.rest_routes(klass, namespace)
       # индекс
-      get namespace do
+      puts "setting route #{namespace} for #{klass}"
+	  get namespace do
         @objects = klass.all, params
         @objects.to_json
       end
