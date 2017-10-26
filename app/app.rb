@@ -10,6 +10,11 @@ module Backend
 		controller.extend self
 	end
 
+	def controller_namespace(controller)
+		## Controller to namespace
+		settings.routes[controller]&.['href'] || controller.class
+	end
+
     def rest_routes(klass, namespace)
       # индекс
       get namespace do
