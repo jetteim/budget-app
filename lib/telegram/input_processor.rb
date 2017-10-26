@@ -58,5 +58,8 @@ class InputProcessor
 
   def bind_token(user, string)
     puts "binding token #{string} for user #{user}"
+    puts "got users #{JSON.parse(RestClient.get('localhost:3000/user'))}"
   end
+
+  def check_authorization(user); end
 end
