@@ -7,6 +7,5 @@ class Journal
 
   belongs_to :user
   has n, :accounts
-  has n, :account_records  
-  
+  has n, :account_records
 end

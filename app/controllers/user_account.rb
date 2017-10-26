@@ -1,5 +1,4 @@
 Backend::BudgetApp.controllers :user_account do
-  
   # get :index, :map => '/foo/bar' do
   #   session[:foo] = 'bar'
   #   render 'index'
@@ -18,6 +17,4 @@ Backend::BudgetApp.controllers :user_account do
   # get '/example' do
   #   'Hello world!'
   # end
-  
-
 end

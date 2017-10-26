@@ -27,7 +27,6 @@ class TelegramListener
     if message['entities']
       entities = {}
       message['entities'].each do |entity|
-        puts "processing entity #{entity}".cyan
         key = entity['type']
         entities[key] = [] unless entities[key]
         entities[key] << message['text'][entity['offset'], entity['length']]

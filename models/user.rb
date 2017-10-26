@@ -10,6 +10,5 @@ class User
   has 1, :user_profile
   has n, :journals
   has n, :accounts
-  has n,  :account_records, :through => :journals
-
+  has n, :account_records, through: :journals
 end

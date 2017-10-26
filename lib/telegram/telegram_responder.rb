@@ -30,6 +30,7 @@ class TelegramResponder
   def send_reply(reply)
     @responders.add(Thread.new do
       begin
+        puts "sending reply: #{reply.inspect}".magenta
         res = @api.sendMessage(reply[:chat_id], reply[:reply])
       rescue StandardError => detail
         puts detail.inspect.red

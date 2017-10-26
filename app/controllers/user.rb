@@ -1,5 +1,4 @@
 Backend::BudgetApp.controllers :user do
-  
   # get :index, :map => '/foo/bar' do
   #   session[:foo] = 'bar'
   #   render 'index'
@@ -20,8 +19,7 @@ Backend::BudgetApp.controllers :user do
   # end
   get :index do
     users = []
-    User.all.each{|u| users << u.attributes.merge(u.user_profile.attributes)}
+    User.all.each { |u| users << u.attributes.merge(u.user_profile.attributes) }
     json users
-  end  
-
+  end
 end

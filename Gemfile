@@ -23,12 +23,12 @@ group :misc do
 end
 
 # Project requirements
+gem 'json'
 gem 'padrino-cache'
 gem 'rake'
 gem 'redis'
-gem 'thin'
 gem 'sinatra-contrib'
-gem 'json'
+gem 'thin'
 # Component requirements
 gem 'dm-aggregates'
 gem 'dm-constraints'
