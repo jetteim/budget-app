@@ -19,7 +19,7 @@ Backend::BudgetApp.controllers :user do
   # end
   get :index do
     users = []
-    User.all.each { |u| users << u.attributes.merge(u.user_profile.attributes) }
+    User.all.each { |u| users << u.to_json }
     json users
   end
 end
