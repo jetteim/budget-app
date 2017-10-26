@@ -50,7 +50,7 @@ module Backend
       delete "#{namespace}/:id" do |id|
         klass.get!(id).destroy
       end
-
+end
     ##
     # Caching support.
     #
