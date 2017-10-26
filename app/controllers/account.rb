@@ -17,4 +17,6 @@ Backend::BudgetApp.controllers :account do
   # get '/example' do
   #   'Hello world!'
   # end
+
+  app.rest_routes Account, app.controller_namespace(self)
 end

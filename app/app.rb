@@ -5,6 +5,44 @@ module Backend
     register Padrino::Cache
     enable :caching
 
+    # здесь же надо будет и проверку авторизации сделать
+    def rest_routes(klass, namespace)
+      # индекс
+      get namespace do
+        @objects = klass.all, params
+        @objects.to_json
+      end
+
+      # явное создание объекта
+      post "#{namespace}/new" do
+        object = klass.create params[:object]
+        object.to_json
+      end
+
+      # апдейт или создание
+      post "#{namespace}/:id" do |id|
+        object = klass.first_or_create(id)
+        object.update params[:object]
+        object.to_json
+      end
+
+      # апдейт
+      put "#{namespace}/:id" do |id|
+        halt 404 unless object = klass.get(id)
+        object.update params[:object]
+        object.to_json
+      end
+
+      get "#{namespace}/:id" do |id|
+        halt 404 unless object = klass.get(id)
+        object.to_json
+      end
+
+      delete "#{namespace}/:id" do |id|
+        klass.get!(id).destroy
+      end
+    end
+
     ##
     # Caching support.
     #

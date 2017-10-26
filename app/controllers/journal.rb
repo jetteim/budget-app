@@ -17,4 +17,6 @@ Backend::BudgetApp.controllers :journal do
   # get '/example' do
   #   'Hello world!'
   # end
+
+  app.rest_routes Journal, app.controller_namespace(self)
 end

@@ -35,10 +35,10 @@ gem 'dm-constraints'
 gem 'dm-core'
 gem 'dm-migrations'
 gem 'dm-postgres-adapter'
+gem 'dm-serializer'
 gem 'dm-timestamps'
 gem 'dm-types'
 gem 'dm-validations'
-gem 'dm-serializer'
 
 # Test requirements
 
