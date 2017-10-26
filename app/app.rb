@@ -11,7 +11,7 @@ module Backend
 	end
 
 	def self.controller_namespace(controller)
-		settings.site_routes[controller.name.underscore.to_sym] || controller.name.underscore
+		controller.name.underscore
 	end
 
     def self.rest_routes(klass, namespace)
