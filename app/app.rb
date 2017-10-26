@@ -11,7 +11,7 @@ module Backend
 	end
 
 	def self.controller_namespace(controller)
-		settings[:routes][controller.class.undercore.to_sym] || controller.class.undercore
+		settings.routes[controller.class.undercore.to_sym] || controller.class.undercore
 	end
 
     def self.rest_routes(klass, namespace)
