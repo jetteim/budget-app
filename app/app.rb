@@ -29,7 +29,19 @@ module Backend
 
       # апдейт или создание
       post "#{namespace}/:id" do |id|
-        object = klass.first_or_create(id)
+        object = klass.first_or_create(id) || klass.first_or_create(id)
+        object.update params[:object]
+        object.to_json
+      end
+
+      post "#{namespace}/:name" do |id|
+        object = klass.first_or_create(id) || klass.first_or_create(id)
+        object.update params[:object]
+        object.to_json
+      end
+
+      post "#{namespace}/:username" do |id|
+        object = klass.first_or_create(id) || klass.first_or_create(id)
         object.update params[:object]
         object.to_json
       end
@@ -41,12 +53,42 @@ module Backend
         object.to_json
       end
 
+      put "#{namespace}/:name" do |id|
+        halt 404 unless object = klass.get(id)
+        object.update params[:object]
+        object.to_json
+      end
+
+      put "#{namespace}/:username" do |id|
+        halt 404 unless object = klass.get(id)
+        object.update params[:object]
+        object.to_json
+      end
+
       get "#{namespace}/:id" do |id|
         halt 404 unless object = klass.get(id)
         object.to_json
       end
 
+      get "#{namespace}/:name" do |id|
+        halt 404 unless object = klass.get(id)
+        object.to_json
+      end
+
+      get "#{namespace}/:username" do |id|
+        halt 404 unless object = klass.get(id)
+        object.to_json
+      end
+
       delete "#{namespace}/:id" do |id|
+        klass.get!(id).destroy
+      end
+
+      delete "#{namespace}/:name" do |id|
+        klass.get!(id).destroy
+      end
+
+      delete "#{namespace}/:username" do |id|
         klass.get!(id).destroy
       end
     end
