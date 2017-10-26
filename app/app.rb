@@ -6,18 +6,18 @@ module Backend
     enable :caching
 
     # здесь же надо будет и проверку авторизации сделать
-	def self.included(controller)
-		controller.extend self
-	end
+    def self.included(controller)
+      controller.extend self
+    end
 
-	def self.controller_namespace(controller)
-		controller.name.underscore
-	end
+    def self.controller_namespace(controller)
+      controller.name.underscore
+    end
 
     def self.rest_routes(klass, namespace = controller_namespace(klass))
       # индекс
       puts "setting route #{namespace} for #{klass}"
-	  get namespace do
+      get namespace do
         @objects = klass.all, params
         @objects.to_json
       end
@@ -29,26 +29,26 @@ module Backend
       end
 
       # апдейт или создание
-      post "#{namespace}/:id" do |id|
-        object = klass.first_or_create(id) || klass.first_or_create(slug: id) || klass.first_or_create(name: id) || klass.first_or_create(username: id)
+      post "#{namespace}/:id" do |_id|
+        object = klass.first_or_create(:id) || klass.first_or_create(slug: :id) || klass.first_or_create(name: :id) || klass.first_or_create(username: :id)
         object.update params[:object]
         object.to_json
       end
- 
+
       # апдейт
-      put "#{namespace}/:id" do |id|
-        halt 404 unless object = klass.get(id) || klass.get(slug: id) || klass.get(name: id) || klass.get(username: id)
+      put "#{namespace}/:id" do |_id|
+        halt 404 unless object = klass.get(:id) || klass.get(slug: :id) || klass.get(name: :id) || klass.get(username: :id)
         object.update params[:object]
         object.to_json
       end
 
-      get "#{namespace}/:id" do |id|
-        halt 404 unless object = klass.get(id) || klass.get(slug: id) || klass.get(name: id) || klass.get(username: id)
+      get "#{namespace}/:id" do |_id|
+        halt 404 unless object = klass.get(:id) || klass.get(slug: :id) || klass.get(name: :id) || klass.get(username: :id)
         object.to_json
       end
 
-      delete "#{namespace}/:id" do |id|
-        klass.get!(id).destroy
+      delete "#{namespace}/:id" do |_id|
+        klass.get!(:id).destroy
       end
 end
     ##
