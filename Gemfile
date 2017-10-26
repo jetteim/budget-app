@@ -27,7 +27,8 @@ gem 'padrino-cache'
 gem 'rake'
 gem 'redis'
 gem 'thin'
-
+gem 'sinatra-contrib'
+gem 'json'
 # Component requirements
 gem 'dm-aggregates'
 gem 'dm-constraints'
