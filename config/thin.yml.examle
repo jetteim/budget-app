@@ -1,0 +1,18 @@
+port: 3000
+user: budget_app
+group: budget_app
+pid: tmp/pids/thin.pid
+timeout: 30
+wait: 30
+log: log/thin.log
+max_conns: 1024
+require: []
+environment: development
+max_persistent_conns: 512
+servers: 4
+threaded: true
+no-epoll: true
+daemonize: true
+socket: tmp/sockets/thin.sock
+chdir: /Users/maximlee/OneDrive/kiralee.me/budget-app
+tag: budget app

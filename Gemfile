@@ -30,17 +30,16 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
-#frontend
-gem 'sass-rails'
-gem 'jquery-rails'
-gem 'ofx'
-gem 'ejs'
-gem 'kaminari'
+# frontend
 gem 'active_model_serializers'
-gem 'ice_cube'
 gem 'bootstrap-sass'
+gem 'ejs'
+gem 'ice_cube'
+gem 'jquery-rails'
+gem 'kaminari'
+gem 'ofx'
 gem 'responders'
-
+gem 'sass-rails'
 
 group :development do
   gem 'listen'
