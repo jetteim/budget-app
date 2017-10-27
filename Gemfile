@@ -30,6 +30,18 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
+#frontend
+gem 'sass-rails'
+gem 'jquery-rails'
+gem 'ofx'
+gem 'ejs'
+gem 'kaminari'
+gem 'active_model_serializers'
+gem 'ice_cube'
+gem 'bootstrap-sass'
+gem 'responders'
+
+
 group :development do
   gem 'listen'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
