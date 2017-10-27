@@ -31,3 +31,4 @@ Rails.application.routes.draw do
     get 'options/payment_types'
     get 'options/payment_periods'
   end
+end

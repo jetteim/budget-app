@@ -1,4 +1,4 @@
-class DotLedgerImporter
+class BudgetImporter
   attr_accessor :file, :data
 
   def initialize(file)

@@ -1,4 +1,4 @@
-class DotLedgerExporter
+class BudgetExporter
   attr_accessor :file, :data
 
   def initialize(file = nil)
