@@ -2,9 +2,7 @@ module Api
   class AccountGroupsController < BaseController
     def index
       @account_groups = AccountGroup.all
-
       @account_groups = @account_groups.order(:name)
-
       respond_with @account_groups
     end
 

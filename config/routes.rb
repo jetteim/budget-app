@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     resources :account_groups
     resources :categories
     resources :goals
+    resources :users
+    resources :user_profiles
     resources :sorted_transactions
     resources :sorting_rules
     resources :statements, only: %i[index show create destroy]
