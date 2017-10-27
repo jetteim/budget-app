@@ -1,3 +1,3 @@
 class UserProfile < ApplicationRecord
-  belnogs_to :user
+  belongs_to :user
 end
