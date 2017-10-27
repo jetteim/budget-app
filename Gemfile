@@ -14,6 +14,7 @@ end
 
 gem 'bcrypt'
 gem 'colorize'
+gem 'jwt'
 gem 'jbuilder'
 gem 'pg'
 gem 'pundit'
