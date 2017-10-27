@@ -1,6 +1,5 @@
 module Api
   class BaseController < ApplicationController
-    skip_before_action :verify_authenticity_token
     before_action :default_format_json
     respond_to :json
 

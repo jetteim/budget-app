@@ -33,8 +33,9 @@ Rails.application.routes.draw do
     get 'options/payment_types'
     get 'options/payment_periods'
   end
-  
-  get '*page' => 'application#boot', as: :boot
 
-  root 'application#boot'
+  unless Rails.env == :production
+    get '*page' => 'application#boot', as: :boot
+    root 'application#boot'
+  end
 end
