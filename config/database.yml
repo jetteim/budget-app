@@ -16,8 +16,8 @@
 #
 default: &default
   adapter: postgresql
-  user: budget_app
   host: localhost
+  user: budget_app
   password: budget_app_password
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
@@ -86,4 +86,3 @@ production:
   database: budget-app_production
 #  username: budget_app
 #  password: <%= ENV['BUDGET-APP_DATABASE_PASSWORD'] || 'budget_app_password' %>
-
